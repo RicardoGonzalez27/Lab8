@@ -52,6 +52,10 @@ public class El_Barrio extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaproducto = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         pro_nombre = new javax.swing.JTextField();
@@ -76,6 +80,8 @@ public class El_Barrio extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jt_pass = new javax.swing.JTextField();
@@ -131,8 +137,8 @@ public class El_Barrio extends javax.swing.JFrame {
         AdminM.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 360, 230));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Productos");
-        AdminM.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, -1, -1));
+        jLabel4.setText("Clientes");
+        AdminM.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, -1, -1));
 
         tablaproducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -155,10 +161,38 @@ public class El_Barrio extends javax.swing.JFrame {
         AdminM.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 230));
 
         jButton2.setText("Eliminar de la Tabla");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
         AdminM.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 150, 140, -1));
 
+        jLabel19.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("Productos");
+        AdminM.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, -1, -1));
+
+        jButton3.setText("Modificar");
+        AdminM.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, -1, -1));
+
+        jButton4.setText("Eliminar de la Tabla");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+        AdminM.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, -1, -1));
+
+        jButton5.setText("Eliminar de Base de Datos");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+        AdminM.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 380, -1, -1));
+
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab_/pkg8/technology-grid-data-background_4aujujcke__F0010.png"))); // NOI18N
-        AdminM.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 490));
+        AdminM.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 500));
 
         jTabbedPane1.addTab("Menu", AdminM);
 
@@ -167,6 +201,16 @@ public class El_Barrio extends javax.swing.JFrame {
                 jPanel2MouseClicked(evt);
             }
         });
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(pro_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 34, 80, -1));
+        jPanel2.add(pro_cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 72, 80, -1));
+        jPanel2.add(pro_precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 110, 80, -1));
+        jPanel2.add(pro_fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 148, 80, -1));
+        jPanel2.add(cli_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(336, 34, 157, -1));
+        jPanel2.add(cli_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(336, 72, 157, -1));
+        jPanel2.add(cli_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(429, 110, 64, -1));
+        jPanel2.add(cli_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 148, 104, -1));
+        jPanel2.add(cli_saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(339, 179, 154, -1));
 
         AddPro.setText("Agregar Cliente");
         AddPro.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -174,6 +218,7 @@ public class El_Barrio extends javax.swing.JFrame {
                 AddProMouseClicked(evt);
             }
         });
+        jPanel2.add(AddPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 233, -1, -1));
 
         AddCli.setText("Agreagar Producto");
         AddCli.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -181,134 +226,48 @@ public class El_Barrio extends javax.swing.JFrame {
                 AddCliMouseClicked(evt);
             }
         });
+        jPanel2.add(AddCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 233, -1, -1));
 
         jLabel5.setText("Prodcuto");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 11, -1, -1));
 
         jLabel6.setText("Nombre");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 37, -1, -1));
 
         jLabel7.setText("Cantidad");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 75, -1, -1));
 
         jLabel8.setText("Precio");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 113, -1, -1));
 
         jLabel9.setText("Fecha de Caducidad");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 151, -1, -1));
 
         jLabel10.setText("Nombre");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 37, -1, -1));
 
         jLabel11.setText("Cuenta");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 75, -1, -1));
 
         jLabel12.setText("ID");
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 151, -1, -1));
 
         jLabel13.setText("Contraseña");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 113, -1, -1));
 
         jLabel15.setText("Saldo");
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 182, -1, -1));
 
         jLabel16.setText("Cliente");
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 11, -1, -1));
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 377, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel7)
-                                        .addComponent(jLabel6)
-                                        .addComponent(jLabel8))
-                                    .addGap(72, 72, 72)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(pro_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                                        .addComponent(pro_cantidad)
-                                        .addComponent(pro_precio)))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel9)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(pro_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(AddCli))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGap(73, 73, 73)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel10)
-                                                    .addComponent(jLabel11))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(cli_nombre)
-                                                    .addComponent(cli_cuenta)))
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addComponent(jLabel12)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(cli_id, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addComponent(jLabel15)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(cli_saldo)))
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(jLabel13)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(cli_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(AddPro))))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel16)
-                            .addGap(77, 77, 77)))
-                    .addComponent(jLabel5))
-                .addGap(72, 72, 72))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel16))
-                .addGap(9, 9, 9)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cli_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pro_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel10))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cli_cuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pro_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel11))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cli_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pro_precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel13))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pro_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel12)
-                    .addComponent(cli_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(cli_saldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AddCli)
-                    .addComponent(AddPro))
-                .addContainerGap(236, Short.MAX_VALUE))
-        );
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab_/pkg8/Mayoreo_Feria_agricultor_RadioHouse-5.jpg"))); // NOI18N
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jTabbedPane1.addTab("Agregar", jPanel2);
 
-        Admin_Menu.getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 550, 520));
+        Admin_Menu.getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 520));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -435,12 +394,19 @@ public class El_Barrio extends javax.swing.JFrame {
     }//GEN-LAST:event_AddCliMouseClicked
 
     private void pro_modbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pro_modbMouseClicked
-
-////        tablaproducto.remove(tablaproducto.getSelectedRow());
+        String nam, nom, cant, prec, fecha;
+        nam = JOptionPane.showInputDialog(Admin_Menu, "Nombre de Producto a Modificar.");
+        nom = JOptionPane.showInputDialog(Admin_Menu, "Nuevo Nombre.");
+        cant = JOptionPane.showInputDialog(Admin_Menu, "Nueva Cantidad.");
+        prec = JOptionPane.showInputDialog(Admin_Menu, "Nuevo Precio.");
+        fecha = JOptionPane.showInputDialog(Admin_Menu, "Nueva Fecha.");
         Dba db = new Dba("./Productos.accdb");
         db.conectar();
         try {
-            db.query.execute("update Prodcutos set direccion ='col x' where cuenta = 2000 ");
+            db.query.execute("update Prodcutos set Cantidad ='" + Integer.parseInt(cant) + "' where Nombre ='" + nam + "'");
+            db.query.execute("update Prodcutos set Precio ='" + Integer.parseInt(prec) + "' where Nombre ='" + nam + "'");
+            db.query.execute("update Prodcutos set Fecha ='" + fecha + "' where Nombre ='" + nam + "'");
+            db.query.execute("update Prodcutos set Nombre ='" + nom + "' where Nombre ='" + nam + "'");
             db.commit();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -450,18 +416,41 @@ public class El_Barrio extends javax.swing.JFrame {
 
     private void pro_deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pro_deleteMouseClicked
         String nom;
-        nom = JOptionPane.showInputDialog(Admin_Menu,"Ingerese el nombre de lo que desea eliminar.");
+        nom = JOptionPane.showInputDialog(Admin_Menu, "Ingerese el nombre de lo que desea eliminar.");
         Dba db = new Dba("./Productos.accdb");
         db.conectar();
         try {
-            db.query.execute("delete from Productos where Nombre = '"+nom+"'");
+            db.query.execute("delete from Productos where Nombre = '" + nom + "'");
             db.commit();
-            tablaproducto.remove(tablaproducto.getSelectedRow());
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
         db.desconectar();
     }//GEN-LAST:event_pro_deleteMouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        tablaproducto.remove(tablaproducto.getSelectedRow());
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        tablacliente.remove(tablacliente.getSelectedRow());
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        String nom;
+        nom = JOptionPane.showInputDialog(Admin_Menu, "Ingerese el nombre de lo que desea eliminar.");
+        Dba db = new Dba("./Clientes.accdb");
+        db.conectar();
+        try {
+            db.query.execute("delete from Productos where Nombre = '" + nom + "'");
+            db.commit();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        db.desconectar();
+    }//GEN-LAST:event_jButton5MouseClicked
 
     /**
      * @param args the command line arguments
@@ -510,6 +499,9 @@ public class El_Barrio extends javax.swing.JFrame {
     private javax.swing.JTextField cli_saldo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -518,6 +510,9 @@ public class El_Barrio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
