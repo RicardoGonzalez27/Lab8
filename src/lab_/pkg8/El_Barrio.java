@@ -173,6 +173,11 @@ public class El_Barrio extends javax.swing.JFrame {
         AdminM.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, -1, -1));
 
         jButton3.setText("Modificar");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
         AdminM.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, -1, -1));
 
         jButton4.setText("Eliminar de la Tabla");
@@ -403,13 +408,15 @@ public class El_Barrio extends javax.swing.JFrame {
         Dba db = new Dba("./Productos.accdb");
         db.conectar();
         try {
-            db.query.execute("update Prodcutos set Cantidad ='" + Integer.parseInt(cant) + "' where Nombre ='" + nam + "'");
-            db.query.execute("update Prodcutos set Precio ='" + Integer.parseInt(prec) + "' where Nombre ='" + nam + "'");
-            db.query.execute("update Prodcutos set Fecha ='" + fecha + "' where Nombre ='" + nam + "'");
-            db.query.execute("update Prodcutos set Nombre ='" + nom + "' where Nombre ='" + nam + "'");
+            db.query.execute("update Productos set Cantidad =" + Integer.parseInt(cant) + " where Nombre ='" + nam + "'");
+            db.query.execute("update Productos set Precio =" + Integer.parseInt(prec) + " where Nombre ='" + nam + "'");
+            db.query.execute("update Productos set Fecha ='" + fecha + "' where Nombre ='" + nam + "'");
+            db.query.execute("update Productos set Nombre ='" + nom + "' where Nombre ='" + nam + "'");
             db.commit();
+            JOptionPane.showMessageDialog(Admin_Menu, "Exito");
         } catch (SQLException e) {
             e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error");
         }
         db.desconectar();
     }//GEN-LAST:event_pro_modbMouseClicked
@@ -451,6 +458,31 @@ public class El_Barrio extends javax.swing.JFrame {
         }
         db.desconectar();
     }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        String nam, nom, cuenta, contraseña, id, saldo;
+        nam = JOptionPane.showInputDialog(Admin_Menu, "Nombre de Cliente a Modificar.");
+        nom = JOptionPane.showInputDialog(Admin_Menu, "Nombre de Cliente.");
+        cuenta = JOptionPane.showInputDialog(Admin_Menu, "Numero de Cuenta.");
+        contraseña = JOptionPane.showInputDialog(Admin_Menu, "Contraseña.");
+        id = JOptionPane.showInputDialog(Admin_Menu, "Identidad.");
+        saldo = JOptionPane.showInputDialog(Admin_Menu, "Saldo.");
+        Dba db = new Dba("./Clientes.accdb");
+        db.conectar();
+        try {
+            db.query.execute("update Clientes set Cuenta =" + Integer.parseInt(cuenta) + " where Nombre ='" + nam + "'");
+            db.query.execute("update Clientes set Saldo =" + Integer.parseInt(saldo) + " where Nombre ='" + nam + "'");
+            db.query.execute("update Clientes set Identidad =" + Integer.parseInt(id) + " where Nombre ='" + nam + "'");
+            db.query.execute("update Clientes set Contraseña ='" + contraseña + "' where Nombre ='" + nam + "'");
+            db.query.execute("update Clientes set Nombre ='" + nom + "' where Nombre ='" + nam + "'");
+            db.commit();
+            JOptionPane.showMessageDialog(Admin_Menu, "Exito");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error");
+        }
+        db.desconectar();
+    }//GEN-LAST:event_jButton3MouseClicked
 
     /**
      * @param args the command line arguments
