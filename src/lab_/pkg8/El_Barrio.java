@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -46,7 +47,7 @@ public class El_Barrio extends javax.swing.JFrame {
         jb_mod = new javax.swing.JButton();
         jg_del = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablacliente = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -97,7 +98,7 @@ public class El_Barrio extends javax.swing.JFrame {
         });
         AdminM.add(jg_del, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablacliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -113,7 +114,7 @@ public class El_Barrio extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablacliente);
 
         AdminM.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 360, 230));
 
@@ -148,14 +149,14 @@ public class El_Barrio extends javax.swing.JFrame {
             }
         });
 
-        AddPro.setText("Agregar Producto");
+        AddPro.setText("Agregar Cliente");
         AddPro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 AddProMouseClicked(evt);
             }
         });
 
-        AddCli.setText("Agreagar Cliente");
+        AddCli.setText("Agreagar Producto");
 
         jLabel5.setText("Prodcuto");
 
@@ -183,13 +184,12 @@ public class El_Barrio extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(AddPro)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel7)
@@ -203,32 +203,37 @@ public class El_Barrio extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                     .addComponent(jLabel9)
                                     .addGap(18, 18, 18)
-                                    .addComponent(pro_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(73, 73, 73)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel10)
-                                            .addComponent(jLabel11))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cli_nombre)
-                                            .addComponent(cli_cuenta)))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel12)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(cli_id, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel15)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(cli_saldo)))
-                                .addComponent(AddCli)
+                                    .addComponent(pro_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(AddCli))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel13)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(cli_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGap(73, 73, 73)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel10)
+                                                    .addComponent(jLabel11))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(cli_nombre)
+                                                    .addComponent(cli_cuenta)))
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addComponent(jLabel12)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(cli_id, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addComponent(jLabel15)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(cli_saldo)))
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(jLabel13)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(cli_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(AddPro))))
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(jLabel16)
                             .addGap(77, 77, 77)))
@@ -270,11 +275,11 @@ public class El_Barrio extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(cli_saldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(34, 34, 34)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AddPro)
-                    .addComponent(AddCli))
-                .addContainerGap(242, Short.MAX_VALUE))
+                    .addComponent(AddCli)
+                    .addComponent(AddPro))
+                .addContainerGap(236, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Agregar", jPanel2);
@@ -345,30 +350,42 @@ public class El_Barrio extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel2MouseClicked
 
     private void AddProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddProMouseClicked
-        Dba db = new Dba("./Productos.mdb");
+        Dba db = new Dba("./Clientes.accdb");
         db.conectar();
         String nombre = cli_nombre.getText();
         int cuenta = Integer.parseInt(cli_cuenta.getText());
         String contraseña = cli_contraseña.getText();
+        String lista = "";
         int id = Integer.parseInt(cli_id.getText());
-        
+        double saldo = Double.parseDouble(cli_saldo.getText());
 
         try {
-            int c;
-            String n;
-
-            c = Integer.parseInt(JOptionPane.showInputDialog("Codigo: "));
-
-            n = JOptionPane.showInputDialog("Nombre: ");
-            db.query.execute("INSERT INTO alumnos" + " (cuenta,nombre)" + " VALUES (" + c + ", '" + n + "')");
-
+            db.query.execute("INSERT INTO Clientes" + " (Nombre,Cuenta,Contraseña,Lista,Identidad,Saldo)" + " VALUES ('" + nombre + "', " + cuenta + ",'" + contraseña + "','" + lista + "'," + id + "," + saldo + ")");
+            JOptionPane.showMessageDialog(Admin_Menu, "Exito");
             db.commit(); //Esto es como el flush, los comandos insert, update, y delete lo llevan siempre.
             //Pasa lo que hay de la RAM al ROM
-
+            DefaultTableModel modelo = (DefaultTableModel) tablacliente.getModel();
+             tablacliente.add(nombre, cuenta, contraseña, lista, id, saldo);
         } catch (SQLException e) {
             e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error");
         }
         db.desconectar();
+        
+        
+        //div
+//        db.conectar();
+//        try {
+//            db.query.execute("select Nombre, Nombre from Clientes");
+//            ResultSet rs = db.query.getResultSet();
+//            while (rs.next()){
+//                System.out.println(rs.getInt(1) + "----->" + rs.getString(2));
+//            }
+//            
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        db.desconectar();
     }//GEN-LAST:event_AddProMouseClicked
 
     /**
@@ -437,7 +454,6 @@ public class El_Barrio extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JButton jb_mod;
     private javax.swing.JButton jg_del;
@@ -447,5 +463,6 @@ public class El_Barrio extends javax.swing.JFrame {
     private javax.swing.JTextField pro_fecha;
     private javax.swing.JTextField pro_nombre;
     private javax.swing.JTextField pro_precio;
+    private javax.swing.JTable tablacliente;
     // End of variables declaration//GEN-END:variables
 }
