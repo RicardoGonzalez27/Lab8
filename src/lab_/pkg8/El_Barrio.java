@@ -44,13 +44,15 @@ public class El_Barrio extends javax.swing.JFrame {
         Admin_Menu = new javax.swing.JDialog();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         AdminM = new javax.swing.JPanel();
-        jb_mod = new javax.swing.JButton();
-        jg_del = new javax.swing.JButton();
+        pro_modb = new javax.swing.JButton();
+        pro_delete = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablacliente = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tablaproducto = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         pro_nombre = new javax.swing.JTextField();
         pro_cantidad = new javax.swing.JTextField();
@@ -87,16 +89,26 @@ public class El_Barrio extends javax.swing.JFrame {
         AdminM.setPreferredSize(new java.awt.Dimension(500, 500));
         AdminM.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jb_mod.setText("Modificar");
-        AdminM.add(jb_mod, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, -1, -1));
-
-        jg_del.setText("Eliminar");
-        jg_del.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jg_delActionPerformed(evt);
+        pro_modb.setText("Modificar");
+        pro_modb.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pro_modbMouseClicked(evt);
             }
         });
-        AdminM.add(jg_del, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, -1, -1));
+        AdminM.add(pro_modb, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, -1, -1));
+
+        pro_delete.setText("Eliminar de Base de Datos");
+        pro_delete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pro_deleteMouseClicked(evt);
+            }
+        });
+        pro_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pro_deleteActionPerformed(evt);
+            }
+        });
+        AdminM.add(pro_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 170, 20));
 
         tablacliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,10 +130,11 @@ public class El_Barrio extends javax.swing.JFrame {
 
         AdminM.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 360, 230));
 
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Productos");
-        AdminM.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, -1, -1));
+        AdminM.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, -1, -1));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tablaproducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -130,16 +143,22 @@ public class El_Barrio extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Object.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tablaproducto);
 
         AdminM.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 230));
+
+        jButton2.setText("Eliminar de la Tabla");
+        AdminM.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 150, 140, -1));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab_/pkg8/technology-grid-data-background_4aujujcke__F0010.png"))); // NOI18N
+        AdminM.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 490));
 
         jTabbedPane1.addTab("Menu", AdminM);
 
@@ -157,6 +176,11 @@ public class El_Barrio extends javax.swing.JFrame {
         });
 
         AddCli.setText("Agreagar Producto");
+        AddCli.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddCliMouseClicked(evt);
+            }
+        });
 
         jLabel5.setText("Prodcuto");
 
@@ -284,7 +308,7 @@ public class El_Barrio extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Agregar", jPanel2);
 
-        Admin_Menu.getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 510, 520));
+        Admin_Menu.getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 550, 520));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -341,9 +365,9 @@ public class El_Barrio extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1MouseClicked
 
-    private void jg_delActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jg_delActionPerformed
+    private void pro_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pro_deleteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jg_delActionPerformed
+    }//GEN-LAST:event_pro_deleteActionPerformed
 
     private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
 
@@ -361,18 +385,17 @@ public class El_Barrio extends javax.swing.JFrame {
 
         try {
             db.query.execute("INSERT INTO Clientes" + " (Nombre,Cuenta,Contraseña,Lista,Identidad,Saldo)" + " VALUES ('" + nombre + "', " + cuenta + ",'" + contraseña + "','" + lista + "'," + id + "," + saldo + ")");
-            JOptionPane.showMessageDialog(Admin_Menu, "Exito");
             db.commit(); //Esto es como el flush, los comandos insert, update, y delete lo llevan siempre.
             //Pasa lo que hay de la RAM al ROM
-            DefaultTableModel modelo = (DefaultTableModel) tablacliente.getModel();
-             tablacliente.add(nombre, cuenta, contraseña, lista, id, saldo);
+            DefaultTableModel client = (DefaultTableModel) tablacliente.getModel();
+            client.addRow(new Object[]{nombre, cuenta, contraseña, lista, id, saldo});
+            JOptionPane.showMessageDialog(Admin_Menu, "Exito");
         } catch (SQLException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Error");
         }
         db.desconectar();
-        
-        
+
         //div
 //        db.conectar();
 //        try {
@@ -387,6 +410,58 @@ public class El_Barrio extends javax.swing.JFrame {
 //        }
 //        db.desconectar();
     }//GEN-LAST:event_AddProMouseClicked
+
+    private void AddCliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddCliMouseClicked
+        Dba db = new Dba("./Productos.accdb");
+        db.conectar();
+        String nombre = pro_nombre.getText();
+        int cantidad = Integer.parseInt(pro_cantidad.getText());
+        int precio = Integer.parseInt(pro_precio.getText());
+        String fecha = pro_fecha.getText();
+
+        try {
+            db.query.execute("INSERT INTO Productos" + " (Nombre,Cantidad,Precio,Fecha)" + " VALUES ('" + nombre + "'," + cantidad + "," + precio + ",'" + fecha + "')");
+
+            db.commit(); //Esto es como el flush, los comandos insert, update, y delete lo llevan siempre.
+            //Pasa lo que hay de la RAM al ROM
+            DefaultTableModel prod = (DefaultTableModel) tablaproducto.getModel();
+            prod.addRow(new Object[]{nombre, cantidad, precio, fecha});
+            JOptionPane.showMessageDialog(Admin_Menu, "Exito");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error");
+        }
+        db.desconectar();
+    }//GEN-LAST:event_AddCliMouseClicked
+
+    private void pro_modbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pro_modbMouseClicked
+
+////        tablaproducto.remove(tablaproducto.getSelectedRow());
+        Dba db = new Dba("./Productos.accdb");
+        db.conectar();
+        try {
+            db.query.execute("update Prodcutos set direccion ='col x' where cuenta = 2000 ");
+            db.commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        db.desconectar();
+    }//GEN-LAST:event_pro_modbMouseClicked
+
+    private void pro_deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pro_deleteMouseClicked
+        String nom;
+        nom = JOptionPane.showInputDialog(Admin_Menu,"Ingerese el nombre de lo que desea eliminar.");
+        Dba db = new Dba("./Productos.accdb");
+        db.conectar();
+        try {
+            db.query.execute("delete from Productos where Nombre = '"+nom+"'");
+            db.commit();
+            tablaproducto.remove(tablaproducto.getSelectedRow());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        db.desconectar();
+    }//GEN-LAST:event_pro_deleteMouseClicked
 
     /**
      * @param args the command line arguments
@@ -434,11 +509,13 @@ public class El_Barrio extends javax.swing.JFrame {
     private javax.swing.JTextField cli_nombre;
     private javax.swing.JTextField cli_saldo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
@@ -454,15 +531,15 @@ public class El_Barrio extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JButton jb_mod;
-    private javax.swing.JButton jg_del;
     private javax.swing.JTextField jt_pass;
     private javax.swing.JTextField jt_username;
     private javax.swing.JTextField pro_cantidad;
+    private javax.swing.JButton pro_delete;
     private javax.swing.JTextField pro_fecha;
+    private javax.swing.JButton pro_modb;
     private javax.swing.JTextField pro_nombre;
     private javax.swing.JTextField pro_precio;
     private javax.swing.JTable tablacliente;
+    private javax.swing.JTable tablaproducto;
     // End of variables declaration//GEN-END:variables
 }
