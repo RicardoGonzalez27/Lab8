@@ -56,6 +56,8 @@ public class El_Barrio extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        Mod_TabPro = new javax.swing.JButton();
+        Mod_TabCli = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         pro_nombre = new javax.swing.JTextField();
@@ -101,7 +103,7 @@ public class El_Barrio extends javax.swing.JFrame {
                 pro_modbMouseClicked(evt);
             }
         });
-        AdminM.add(pro_modb, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, -1, -1));
+        AdminM.add(pro_modb, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, -1, -1));
 
         pro_delete.setText("Eliminar de Base de Datos");
         pro_delete.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -138,7 +140,7 @@ public class El_Barrio extends javax.swing.JFrame {
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Clientes");
-        AdminM.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, -1, -1));
+        AdminM.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, -1, -1));
 
         tablaproducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -166,7 +168,7 @@ public class El_Barrio extends javax.swing.JFrame {
                 jButton2MouseClicked(evt);
             }
         });
-        AdminM.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 150, 140, -1));
+        AdminM.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 140, -1));
 
         jLabel19.setBackground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Productos");
@@ -178,7 +180,7 @@ public class El_Barrio extends javax.swing.JFrame {
                 jButton3MouseClicked(evt);
             }
         });
-        AdminM.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, -1, -1));
+        AdminM.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, -1, -1));
 
         jButton4.setText("Eliminar de la Tabla");
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -186,7 +188,7 @@ public class El_Barrio extends javax.swing.JFrame {
                 jButton4MouseClicked(evt);
             }
         });
-        AdminM.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, -1, -1));
+        AdminM.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, -1, -1));
 
         jButton5.setText("Eliminar de Base de Datos");
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -194,7 +196,23 @@ public class El_Barrio extends javax.swing.JFrame {
                 jButton5MouseClicked(evt);
             }
         });
-        AdminM.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 380, -1, -1));
+        AdminM.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, -1, -1));
+
+        Mod_TabPro.setText("Modificar en Tabla");
+        Mod_TabPro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Mod_TabProMouseClicked(evt);
+            }
+        });
+        AdminM.add(Mod_TabPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, -1, -1));
+
+        Mod_TabCli.setText("Modificar Tabla");
+        Mod_TabCli.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Mod_TabCliMouseClicked(evt);
+            }
+        });
+        AdminM.add(Mod_TabCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, -1, -1));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab_/pkg8/technology-grid-data-background_4aujujcke__F0010.png"))); // NOI18N
         AdminM.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 500));
@@ -213,8 +231,8 @@ public class El_Barrio extends javax.swing.JFrame {
         jPanel2.add(pro_fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 148, 80, -1));
         jPanel2.add(cli_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(336, 34, 157, -1));
         jPanel2.add(cli_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(336, 72, 157, -1));
-        jPanel2.add(cli_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(429, 110, 64, -1));
-        jPanel2.add(cli_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 148, 104, -1));
+        jPanel2.add(cli_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 120, -1));
+        jPanel2.add(cli_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 148, 160, -1));
         jPanel2.add(cli_saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(339, 179, 154, -1));
 
         AddPro.setText("Agregar Cliente");
@@ -258,7 +276,7 @@ public class El_Barrio extends javax.swing.JFrame {
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 151, -1, -1));
 
         jLabel13.setText("Contraseña");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 113, -1, -1));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, -1, -1));
 
         jLabel15.setText("Saldo");
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 182, -1, -1));
@@ -484,6 +502,39 @@ public class El_Barrio extends javax.swing.JFrame {
         db.desconectar();
     }//GEN-LAST:event_jButton3MouseClicked
 
+    private void Mod_TabProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mod_TabProMouseClicked
+        String nom, cant, prec, fecha;
+        nom = JOptionPane.showInputDialog(Admin_Menu, "Nuevo Nombre.");
+        cant = JOptionPane.showInputDialog(Admin_Menu, "Nueva Cantidad.");
+        prec = JOptionPane.showInputDialog(Admin_Menu, "Nuevo Precio.");
+        fecha = JOptionPane.showInputDialog(Admin_Menu, "Nueva Fecha.");
+        try {
+            DefaultTableModel prod = (DefaultTableModel) tablaproducto.getModel();
+            prod.addRow(new Object[]{nom, Integer.parseInt(cant),  Integer.parseInt(prec), fecha});
+            JOptionPane.showMessageDialog(Admin_Menu, "Exito");
+            tablaproducto.remove(tablaproducto.getSelectedRow());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error");
+        }
+    }//GEN-LAST:event_Mod_TabProMouseClicked
+
+    private void Mod_TabCliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mod_TabCliMouseClicked
+        String nom, cuenta, contraseña, id, saldo;
+        nom = JOptionPane.showInputDialog(Admin_Menu, "Nombre de Cliente.");
+        cuenta = JOptionPane.showInputDialog(Admin_Menu, "Numero de Cuenta.");
+        contraseña = JOptionPane.showInputDialog(Admin_Menu, "Contraseña.");
+        id = JOptionPane.showInputDialog(Admin_Menu, "Identidad.");
+        saldo = JOptionPane.showInputDialog(Admin_Menu, "Saldo.");
+        try {
+            DefaultTableModel prod = (DefaultTableModel) tablaproducto.getModel();
+            prod.addRow(new Object[]{nom,  Integer.parseInt(cuenta), contraseña, "",  Integer.parseInt(id),  Integer.parseInt(saldo)});
+            JOptionPane.showMessageDialog(Admin_Menu, "Exito");
+            tablaproducto.remove(tablaproducto.getSelectedRow());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error");
+        }
+    }//GEN-LAST:event_Mod_TabCliMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -524,6 +575,8 @@ public class El_Barrio extends javax.swing.JFrame {
     private javax.swing.JButton AddPro;
     private javax.swing.JPanel AdminM;
     private javax.swing.JDialog Admin_Menu;
+    private javax.swing.JButton Mod_TabCli;
+    private javax.swing.JButton Mod_TabPro;
     private javax.swing.JTextField cli_contraseña;
     private javax.swing.JTextField cli_cuenta;
     private javax.swing.JTextField cli_id;
